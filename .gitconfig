@@ -1,6 +1,10 @@
 [core]
     excludesfile = ~/.gitignore-global
 
+[user]
+    name  = mingjinwu
+    email = mingjin.wu@gmail.com
+
 [alias]
   # Adding
     a     = add
