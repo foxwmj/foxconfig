@@ -10,6 +10,10 @@ if filereadable(expand("~/.vim/vendor/gvim_windows/mswin.vim"))
     source ~/.vim/vendor/gvim_windows/mswin.vim
 endif
 
+if filereadable(expand("~/.vim/shortcut"))
+    source ~/.vim/shortcut
+endif
+
 "Editor setting
 "-------------------
 syntax enable

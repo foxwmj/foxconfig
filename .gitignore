@@ -3,4 +3,5 @@
 
 
 # do not ignore:
-#.bash/  # do no ignore .bash folder
+!.bash/                 # do no ignore .bash folder
+!.vim/
