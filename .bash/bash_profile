@@ -1,0 +1,5 @@
+so() { for f in $@; do [ -s $1 ] && source "$f"; done; }
+
+so ~/.bash/alias
+so ~/.bash/prompt
+
