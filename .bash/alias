@@ -1,3 +1,6 @@
+
+[ -f /usr/share/bash-completion/completions/git ] && source /usr/share/bash-completion/completions/git  # to complete git
+
 alias .G='git --git-dir=$HOME/foxconfig.git --work-tree=$HOME'
 complete -o default -o nospace -F _git .G   # allow git-completion to work with alias aswell
 
