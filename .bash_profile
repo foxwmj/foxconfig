@@ -39,10 +39,12 @@
 #   2.  Command is added to the history file each time you hit enter so its
 #       available to all shells.
 
-alias ls='ls -G'
-alias l='ls -l -G'
-alias l.='ls -d .* -G'
-alias ll='ls -d -l -G .*'
+alias .G='git --git-dir=$HOME/foxconfig.git --work-tree=$HOME'
+
+alias ls='ls -G --color=auto'
+alias l='ls -l -G --color=auto'
+alias l.='ls -A -G --color=auto'
+alias ll='ls -l -G -A --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 

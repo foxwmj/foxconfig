@@ -1,0 +1,11 @@
+[core]
+    excludesfile = ~/.gitignore-global
+
+[alias]
+  # Adding
+    a     = add
+    af    = add -f  # force
+
+  # Statue
+    st    = status
+    sts   = status -s -uno
