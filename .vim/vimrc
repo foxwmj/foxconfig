@@ -1,10 +1,14 @@
 set nocompatible
 
-" import windows
-"if filereadable(expand("~/.vim/vimrc"))
-"    source gvim_windows_default.vim
-"endif
 
+" import windows
+if filereadable(expand("~/.vim/vendor/gvim_windows/gvim_windows_default.vim"))
+    source ~/.vim/vendor/gvim_windows/gvim_windows_default.vim
+endif
+
+if filereadable(expand("~/.vim/vendor/gvim_windows/mswin.vim"))
+    source ~/.vim/vendor/gvim_windows/mswin.vim
+endif
 
 "Editor setting
 "-------------------
@@ -47,7 +51,8 @@ call vundle#begin()
 
 " My Bundles here:
 " ----------------
-Plugin 'taglist.vim'
+
+"Plugin 'taglist.vim'
 Plugin 'a.vim'
 Plugin 'molokai'
 Plugin 'The-NERD-tree'
