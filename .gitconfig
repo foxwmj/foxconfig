@@ -9,3 +9,20 @@
   # Statue
     st    = status
     sts   = status -s -uno
+
+[merge]
+    tool = vimdiff
+
+[mergetool]
+    #prompt = false
+    tool = vimdiff
+
+[diff]
+    tool = vimdiff
+
+[difftool]
+    #prompt = false
+    tool = vimdiff
+
+
+
