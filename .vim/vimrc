@@ -10,8 +10,86 @@ if filereadable(expand("~/.vim/vendor/gvim_windows/mswin.vim"))
     source ~/.vim/vendor/gvim_windows/mswin.vim
 endif
 
-if filereadable(expand("~/.vim/shortcut"))
-    source ~/.vim/shortcut
+
+
+
+"==============================================
+" Vundle
+"==============================================
+
+filetype off                   " required!
+
+"set rtp+=~/.vim/vendor/snipmate.snippets/
+set rtp+=~/.vim/vendor/vundle.vim/
+"set rtp+=d:\00_MJ_CODE\01_github_sandbox\py_proj\setup_machine\01_vim_setup\vundle_runtime_new\Vundle.vim
+"call vundle#begin("d:\\00_MJ_CODE\\01_github_sandbox\\py_proj\\setup_machine\\01_vim_setup\\vundle_runtime_new")
+"
+call vundle#begin()
+
+" let Vundle manage Vundle
+" required! 
+"Plugin 'VundleVim/vundle.vim'
+
+" My Bundles here:
+" ----------------
+"Plugin 'taglist.vim'
+Plugin 'a.vim'
+
+Plugin 'The-NERD-tree'
+Plugin 'snipMate'
+Plugin 'OmniCppComplete'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'Tagbar'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"==============================================
+" My Setting
+"==============================================
+
+" Unmap
+"-------------------
+unmap <C-Y>
+
+" Color
+"-------------------
+colorscheme molokai
+
+"No Backup and exchanged file
+"-------------------
+set nobackup
+set noswapfile
+
+"Encoding 
+"-------------------
+set encoding=utf-8
+set fileencodings=utf-8,cp936,gb2312,gb18030,gbk,ucs-bom,latin1
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_CN.utf-8
+
+"Maximun the window
+"-------------------
+if (has("gui_running"))
+    set nowrap
+    set guioptions+=b
+    autocmd GUIEnter * simalt ~x
+else
+    set wrap
+endif
+
+"Font
+"-------------------
+if has('win32') || has('win64')
+    "set guifont=Inconsolata:h12
+    set guifont=DejaVu_Sans_Mono:h10:cANSI
+else
+    set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 
 "Editor setting
@@ -28,93 +106,8 @@ set incsearch
 set hlsearch
 set ignorecase
 
-set nobackup
 
 
-"==============================================
-" Vundle
-"==============================================
-"
-" 1)Installation requires Git and triggers git clone
-" 2)Curl is required for search.
-" 3)Set up Vundle: 
-"       WIN> **NO NEED any more**
-"       LINUX> $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/vendor/vundle.vim
-" 4)Configure Plugins
-"
-filetype off                   " required!
-
-"set rtp+=~/.vim/vendor/snipmate.snippets/
-set rtp+=~/.vim/vendor/vundle.vim/
-
-"set rtp+=d:\00_MJ_CODE\01_github_sandbox\py_proj\setup_machine\01_vim_setup\vundle_runtime_new\Vundle.vim
-"call vundle#begin("d:\\00_MJ_CODE\\01_github_sandbox\\py_proj\\setup_machine\\01_vim_setup\\vundle_runtime_new")
-call vundle#begin()
-
-" let Vundle manage Vundle
-" required! 
-"Plugin 'VundleVim/vundle.vim'
-
-" My Bundles here:
-" ----------------
-
-"Plugin 'taglist.vim'
-Plugin 'a.vim'
-
-
-Plugin 'tomasr/molokai'
-
-Plugin 'The-NERD-tree'
-Plugin 'snipMate'
-"Bundle 'minibufexplorerpp'
-"Bundle 'AutoComplPop'
-Plugin 'OmniCppComplete'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-"Bundle 'Syntastic'
-"Bundle 'VimPdb'
-Plugin 'Tagbar'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-"---------------------
-"      DOCS
-"--------------------
-"
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-"
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-"
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-"
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-"
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-"Plugin 'ascenator/L9', {'name': 'newL9'}
-"
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-color molokai
+if filereadable(expand("~/.vim/shortcut"))
+    source ~/.vim/shortcut
+endif
