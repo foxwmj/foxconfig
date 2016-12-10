@@ -11,12 +11,9 @@ if filereadable(expand("~/.vim/vendor/gvim_windows/mswin.vim"))
 endif
 
 
-
-
 "==============================================
 " Vundle
 "==============================================
-
 filetype off                   " required!
 
 "set rtp+=~/.vim/vendor/snipmate.snippets/
@@ -112,4 +109,8 @@ set ignorecase
 
 if filereadable(expand("~/.vim/shortcut"))
     source ~/.vim/shortcut
+endif
+
+if filereadable(expand("~/.vim/function"))
+    source ~/.vim/function
 endif
