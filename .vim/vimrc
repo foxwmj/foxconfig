@@ -10,39 +10,65 @@ if filereadable(expand("~/.vim/vendor/gvim_windows/mswin.vim"))
     source ~/.vim/vendor/gvim_windows/mswin.vim
 endif
 
-
 "==============================================
-" Vundle
+" vim-plug
 "==============================================
+set nocompatible               " be iMproved
 filetype off                   " required!
 
-"set rtp+=~/.vim/vendor/snipmate.snippets/
-set rtp+=~/.vim/vendor/vundle.vim/
-"set rtp+=d:\00_MJ_CODE\01_github_sandbox\py_proj\setup_machine\01_vim_setup\vundle_runtime_new\Vundle.vim
-"call vundle#begin("d:\\00_MJ_CODE\\01_github_sandbox\\py_proj\\setup_machine\\01_vim_setup\\vundle_runtime_new")
-"
-call vundle#begin()
-
-" let Vundle manage Vundle
-" required! 
-"Plugin 'VundleVim/vundle.vim'
+if has('win32') || has('win64')
+    call plug#begin("d:\\WindowsVim\\vim.plug.runtime")
+else
+    call plug#begin()
+endif
 
 " My Bundles here:
 " ----------------
-"Plugin 'taglist.vim'
-Plugin 'a.vim'
-Plugin 'molokai'
-Plugin 'The-NERD-tree'
-Plugin 'snipMate'
-Plugin 'OmniCppComplete'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'Tagbar'
+Plug 'taglist.vim'
+Plug 'a.vim'
+Plug 'molokai'
+Plug 'The-NERD-tree'
+Plug 'L9'
+Plug 'FuzzyFinder'
+Plug 'Tagbar'             " browse the tags of the current file and get an overview of its structure
+" ------------------------------------------------------------------
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+" ------------------------------
+" How to solve YCM start slowly
+" https://github.com/Valloric/YouCompleteMe/issues/893
+" ------------------------------
+function! YCMInstall(info)
+  if a:info.status == 'installed'
+    !python install.py --clang-completer
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': function('YCMInstall') }
 
+function! YCM()
+    call plug#load('YouCompleteMe')
+    if exists('g:loaded_youcompleteme')
+        call youcompleteme#Enable()
+    endif
+endfunction
+" ------------------------------
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+" ------------------------------
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" ------------------------------------------------------------------
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+filetype plugin indent on
+
 
 "==============================================
 " My Setting
@@ -60,6 +86,7 @@ colorscheme molokai
 "-------------------
 set nobackup
 set noswapfile
+set noundofile
 
 "Encoding 
 "-------------------
