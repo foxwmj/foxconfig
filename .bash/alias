@@ -9,12 +9,19 @@ alias G='git'
 complete -o default -o nospace -F _git G    # allow git-completion to work with alias aswell
 
 
-alias ls='ls -G --color=auto'
-alias l='ls -l -G --color=auto'
-alias l.='ls -A -G --color=auto'
-alias ll='ls -l -G -A --color=auto'
-alias mv='mv -i'
-alias rm='rm -i'
+if [ "$(uname)" == "Darwin" ]; then
 
-alias port='sudo netstat -tunlp'
-alias psgrep='ps ax | grep'
+    alias ll='ls -l -G -a'
+
+elif [ "$(uname -s)" == "Linux" ]; then
+
+    alias ls='ls -G --color=auto'
+    alias l='ls -l -G --color=auto'
+    alias l.='ls -A -G --color=auto'
+    alias ll='ls -l -G -A --color=auto'
+    alias mv='mv -i'
+    alias rm='rm -i'
+
+    alias port='sudo netstat -tunlp'
+    alias psgrep='ps ax | grep'
+fi

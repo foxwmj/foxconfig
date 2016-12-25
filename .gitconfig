@@ -25,11 +25,12 @@
     tool = vimdiff
 
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [difftool]
     #prompt = false
     tool = vimdiff
+	prompt = No
 
 
 
