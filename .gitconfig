@@ -32,5 +32,6 @@
     tool = vimdiff
 	prompt = No
 
-
-
+[remote "vimrc"]
+	url = https://github.com/foxwmj/vimrc.git
+	fetch = +refs/heads/*:refs/remotes/vimrc/*
