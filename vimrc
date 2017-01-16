@@ -59,8 +59,24 @@ let g:powerline_symbols = 'fancy'
 
 " ------------------------------------------------------------------
 Plug 'SirVer/ultisnips'
-"set rtp+="D:\\WindowsVim\\vim.plug.runtime\\my_snippets"
+
+" Add ~/.vim/vendor to rtp(RunTimePath)
+let s:VENDOR_PATH= s:VIMRC_PATH . s:PATH_DIVISOR . "vendor"
+if isdirectory(s:VENDOR_PATH)
+    exec "set rtp+=" . s:VENDOR_PATH
+endif
 let g:UltiSnipsSnippetDirectories=["UltiSnips","wmj_snippets"]           
+" ~/.vim/vendor/{ft}.snippets
+function! EditFtSnippet()
+    let s:WORKING_FT_SNIPPET = s:VENDOR_PATH . s:PATH_DIVISOR . "wmj_snippets" . s:PATH_DIVISOR . &filetype . ".snippets"
+    exec "vsplit " . s:WORKING_FT_SNIPPET
+    "autocmd Buf
+endfunction
+if !exists(":FT")
+    command FT call EditFtSnippet()
+endif
+" ------------------------------------------------------------------
+
 
 
 " Plug 'Valloric/YouCompleteMe' 
@@ -174,12 +190,13 @@ set ignorecase
 "-------------------
 if has("win32") || has("win64")
     let g:Tlist_Ctags_Cmd=$VIM . '/tools/ctags58/ctags.exe'
-    let $CTAGS=g:Tlist_Ctags_Cmd
 elseif system('uname')=~'Darwin'
     let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'   " brew install ctags
-    let $CTAGS=g:Tlist_Ctags_Cmd
+else
+    let g:Tlist_Ctags_Cmd='/usr/bin/ctags'  
 endif
 
+let $CTAGS=g:Tlist_Ctags_Cmd
 set tags=./tags;  "This will look in the current directory for tags, and work up the tree towards root until one is found.
 let tlist_objc_settings    = 'objc;i:interface;c:class;m:method;p:property'
 let g:tagbar_ctags_bin=g:Tlist_Ctags_Cmd
@@ -230,3 +247,9 @@ let s:FUNCTION_FILE = s:VIMRC_PATH . s:PATH_DIVISOR . "function"
 if filereadable(s:FUNCTION_FILE)
     exec "source " . s:FUNCTION_FILE
 endif
+
+"=========================
+" auto command
+"
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
+
