@@ -29,3 +29,6 @@ fi
 
 # NGINX
 alias ng_reload="echo 'reloading nginx...'; sudo /usr/local/nginx/sbin/nginx -s reload;  echo 'reloaded.'; "
+alias ng_conf="cd /usr/local/nginx/conf"
+alias ng_log="cd /data/wwwlogs"
+
