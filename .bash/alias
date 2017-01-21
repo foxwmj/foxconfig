@@ -25,3 +25,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
     alias port='sudo netstat -tunlp'
     alias psgrep='ps ax | grep'
 fi
+
+
+# NGINX
+alias ng_reload="echo 'reloading nginx...'; sudo /usr/local/nginx/sbin/nginx -s reload;  echo 'reloaded.'; "
