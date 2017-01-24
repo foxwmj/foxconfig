@@ -32,3 +32,6 @@ alias ng_reload="echo 'reloading nginx...'; sudo /usr/local/nginx/sbin/nginx -s 
 alias ng_conf="cd /usr/local/nginx/conf"
 alias ng_log="cd /data/wwwlogs"
 
+# TMUX
+alias tmj="tmux attach -t mj"   #attach mj session
+alias tmjn="tmux new -s mj"     #new session with name mj
