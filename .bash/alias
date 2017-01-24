@@ -35,3 +35,6 @@ alias ng_log="cd /data/wwwlogs"
 # TMUX
 alias tmj="tmux attach -t mj"   #attach mj session
 alias tmjn="tmux new -s mj"     #new session with name mj
+
+alias st_pull=".G subtree pull --squash -P .vim vimrc master"
+alias st_push=".G subtree push -P .vim vimrc master"
