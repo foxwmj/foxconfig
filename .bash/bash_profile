@@ -9,4 +9,6 @@ so() { for f in $@; do [ -s $1 ] && source "$f"; done; }
 so ~/.bash/alias
 so ~/.bash/prompt
 
-
+# How to unfreeze after accidentally pressing Ctrl-S in a terminal?
+# http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminalp
+stty –ixon
