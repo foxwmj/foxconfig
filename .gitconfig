@@ -18,7 +18,13 @@
     l     = log --stat
     lgo   = log --graph --oneline
 
+  # commit
     ci    = commit
+
+  # diff
+    d     = difftool
+    ds    = difftool --staged
+
 
 [merge]
     tool = vimdiff
