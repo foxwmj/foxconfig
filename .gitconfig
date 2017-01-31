@@ -25,6 +25,16 @@
     d     = difftool
     ds    = difftool --staged
 
+  # rm
+    unt   = rm -r --cached # untrack some file
+
+  # reset
+    unadd = reset #unstage file
+    una   = reset #unstage file
+
+  # checkout
+    co    = checkout
+    
 
 [merge]
     tool = vimdiff
