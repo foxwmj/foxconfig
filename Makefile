@@ -8,9 +8,10 @@ copy:
 	@echo
 	@echo "--------------- bash scripts ---------------";
 	@echo
-	[ -d ~/.bash ] \
-		&& ([ -d ~/.bash.bak ] || mkdir ~/.bash.bak) \
-		&& cp -i ~/.bash/* ~/.bash.bak/;
+	if [ -d ~/.bash ]; then \
+		([ -d ~/.bash.bak ] || mkdir ~/.bash.bak) \
+		&& cp -i ~/.bash/* ~/.bash.bak/; \
+	fi
 	cp -i -r .bash ~;
 	@echo
 	@echo "--------------- bashrc---------------";
@@ -23,6 +24,7 @@ copy:
 	@echo
 	@echo "--------------- tmux ---------------";
 	@echo
-	[ -f ~/.tmux.conf ] \
-		&& cp -i ~/.tmux.conf ~/.tmux.conf.bak;
+	if [ -f ~/.tmux.conf ]; then \
+		cp -i ~/.tmux.conf ~/.tmux.conf.bak; \
+	fi
 	cp -i .tmux.conf ~/.tmux.conf;
