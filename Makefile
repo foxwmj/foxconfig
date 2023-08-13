@@ -4,7 +4,7 @@ copy:
 	@echo
 	[ -f ~/.gitconfig ] \
 		&& cp -i ~/.gitconfig ~/.gitconfig.bak;
-	cp -i .gitconfig ~/.gitconfig;
+	cp -f .gitconfig ~/.gitconfig;
 	@echo
 	@echo "--------------- bash scripts ---------------";
 	@echo
@@ -12,7 +12,7 @@ copy:
 		([ -d ~/.bash.bak ] || mkdir ~/.bash.bak) \
 		&& cp -i ~/.bash/* ~/.bash.bak/; \
 	fi
-	cp -i -r .bash ~;
+	cp -rf .bash ~;
 	@echo
 	@echo "--------------- bashrc---------------";
 	@echo
@@ -27,4 +27,4 @@ copy:
 	if [ -f ~/.tmux.conf ]; then \
 		cp -i ~/.tmux.conf ~/.tmux.conf.bak; \
 	fi
-	cp -i .tmux.conf ~/.tmux.conf;
+	cp -f .tmux.conf ~/.tmux.conf;
