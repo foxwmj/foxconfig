@@ -1,3 +1,6 @@
+.DEFAULT_GOAL := help
+help:
+	@grep "^\w\+\s\?:" Makefile
 copy:
 	@echo
 	@echo "--------------- gitconfig ---------------";
