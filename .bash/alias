@@ -21,6 +21,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
     alias ll='ls -l -G -A --color=auto'
     alias mv='mv -i'
     alias rm='rm -i'
+    alias m='make'
 
     alias port='sudo netstat -tunlp'
     alias psgrep='ps ax | grep'
