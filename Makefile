@@ -5,8 +5,9 @@ copy:
 	@echo
 	@echo "--------------- gitconfig ---------------";
 	@echo
-	[ -f ~/.gitconfig ] \
-		&& cp -i ~/.gitconfig ~/.gitconfig.bak;
+	if [ -f ~/.gitconfig ]; then  \
+		cp -i ~/.gitconfig ~/.gitconfig.bak; \
+	fi
 	cp -f .gitconfig ~/.gitconfig;
 	@echo
 	@echo "--------------- bash scripts ---------------";
