@@ -21,7 +21,8 @@ copy:
 	@echo "--------------- bashrc---------------";
 	@echo
 	grep -q "source ~/.bash/bash_profile" ~/.bashrc || ( \
-		echo "\n#############################" 	>> ~/.bashrc && \
+		echo  					>> ~/.bashrc && \
+		echo "#############################" 	>> ~/.bashrc && \
 		echo "# Added by Mingjin"		>> ~/.bashrc && \
 		echo "#############################" 	>> ~/.bashrc && \
 		echo "[ -f ~/.bash/bash_profile ] && source ~/.bash/bash_profile" >> ~/.bashrc)
